@@ -1,0 +1,13 @@
+.nav {
+  display: flex;
+}
+
+.navLink {
+  padding: 8px 12px;
+  font-size: 1.125em;
+  border-radius: 4px;
+}
+
+.navLink:hover {
+  background: var(--nav-link-bg-hover);
+}

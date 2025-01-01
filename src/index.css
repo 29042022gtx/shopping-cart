@@ -1,12 +1,15 @@
 :root {
-  --max-width: 900px;
+  --max-width: 960px;
   --text-primary: #202528;
   --text-secondary: #595C5F;
   --background-primary: #FFFFFF;
   --background-secondary: #E8EBEE;
+  --nav-bg: #FFD400;
+  --nav-link-bg-hover: #FFEE99;
 }
 
 body {
+  margin: 0;
   font-family: sans-serif;
   color: var(--text-primary);
   background-color: var(--background-primary);
