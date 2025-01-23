@@ -1,0 +1,63 @@
+.home {
+  margin-bottom: 1em;
+}
+
+.home > * {
+  flex: 1;
+}
+
+.homeText {
+  padding: 4px;
+  line-height: 1.5;
+}
+
+.homeTitle {
+  flex: 1;
+  margin: 0.5em 0;
+}
+
+.homeFeature {
+  gap: 1px;
+  display: flex;
+  flex-direction: column;
+  padding: 1px;
+  background-color: salmon;
+}
+
+.feature {
+  padding: 0.5em;
+  text-align: center;
+  background-color: var(--nav-bg);
+}
+
+.featureTitle {
+  text-align: center;
+}
+
+.featureName {
+  font-size: 1.2em;;
+}
+
+.trendingCategories {
+  gap: 4px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.categoryItem {
+  padding: 4px 8px;
+  background-color: var(--background-secondary);
+  border-radius: 1000px;
+}
+
+@media (width >= 768px) {
+  .home {
+    gap: 4px;
+    display: flex;
+    align-items: center;
+  }
+
+  .homeFeature {
+    flex-direction: row;
+  }
+}

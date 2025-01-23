@@ -1,11 +1,11 @@
 :root {
   --max-width: 960px;
   --text-primary: #202528;
-  --text-secondary: #595C5F;
-  --background-primary: #FFFFFF;
-  --background-secondary: #E8EBEE;
-  --nav-bg: #FFD400;
-  --nav-link-bg-hover: #FFEE99;
+  --text-secondary: #595c5f;
+  --background-primary: #ffffff;
+  --background-secondary: #e8ebee;
+  --nav-bg: #ffd400;
+  --nav-link-bg-hover: #ffee99;
 }
 
 body {
@@ -38,4 +38,30 @@ img {
 .content-wrapper {
   max-width: var(--max-width);
   margin: auto;
+}
+
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.bg-primary {
+  background-color: var(--background-primary);
+}
+
+.bg-secondary {
+  background-color: var(--background-secondary);
+}
+
+.figure {
+  position: relative;
+}
+
+.figureCaption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }

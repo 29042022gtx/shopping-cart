@@ -1,0 +1,24 @@
+.footerLinks {
+  gap: 16px;
+  display: grid;
+  margin-bottom: 1em;
+}
+
+.footerLinks a {
+  text-decoration: underline;
+  color: var(--text-secondary);
+
+}
+
+@media (width >= 576px) {
+  .footerLinks {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >= 768px) {
+  .footerLinks {
+    gap: 4px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
