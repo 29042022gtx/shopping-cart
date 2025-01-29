@@ -1,0 +1,63 @@
+.cartBTN {
+  display: block;
+  margin-left: auto;
+  border: 1px solid var(--text-secondary);
+}
+
+.cartBTNBadge {
+  background-color: var(--nav-bg);
+  right: 0.5em;
+  top: 0;
+}
+
+.card {
+  min-width: 0;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.cardInfo {
+  margin: 4px;
+  overflow: hidden;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}
+
+.cardImage {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  margin: 4px;
+  border-radius: 8px;
+}
+
+.cardDescription {
+  margin: 4px;
+  line-height: 1.2;
+  max-height: 2.4em;
+  overflow: hidden;
+  color: var(--text-secondary);
+}
+
+.cardList {
+  gap: 8px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: var(--background-secondary);
+  padding: 8px;
+}
+
+.cartImage {
+  width: 2em;
+  aspect-ratio: 1;
+  object-fit: contain;
+  margin: 4px;
+  border-radius: 8px;
+}
+
+
+@media screen and (width >= 768px) {
+  .cardList {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

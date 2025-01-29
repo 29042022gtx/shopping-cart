@@ -65,3 +65,50 @@ img {
   left: 0;
   bottom: 0;
 }
+
+.showing-modal {
+  overflow: hidden;
+  padding-right: 14px;
+  transition: none;
+}
+
+.modal {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding-right: 14px;
+  position: fixed;
+  left: 0;
+  bottom: 100%;
+  transition: background-color 0.2s 0.3s, bottom 0s 0.5s;
+}
+
+.show {
+  bottom: 0;
+  background-color: #0005;
+  transition: background-color 0.2s;
+}
+
+.modal-body {
+  flex: 1;
+  box-sizing: border-box;
+  opacity: 0;
+  min-width: 0;
+  max-width: var(--max-width);
+  margin: 2em;
+  background-color: var(--background-secondary);
+  transition: opacity 0.5s;
+}
+
+.modal-content {
+  height: 100%;
+  overflow: hidden auto;
+}
+
+.show .modal-body {
+  opacity: 1;
+  transition: opacity 0.5s 0.1s;
+}
+
