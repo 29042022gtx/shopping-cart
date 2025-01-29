@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 function useProducts() {
-  const [products, setProduct] = useState(null);
+  const [products, setProducts] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -13,7 +13,7 @@ function useProducts() {
         }
         return response.json();
       })
-      .then((response) => setProduct(response))
+      .then((response) => setProducts(response))
       .catch((error) => setError(error))
       .finally(() => setLoading(false));
   }, []);

@@ -34,7 +34,7 @@ function Product({ product = {}, addToCart }) {
           name="quantity"
           type="number"
           value={quantity}
-          min={1}
+          min="1"
           onInput={(e) => {
             setQuantity(e.target.value);
           }}
@@ -54,6 +54,7 @@ function Product({ product = {}, addToCart }) {
             quantity,
           });
         }}
+        aria-label="add to cart"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +70,7 @@ function Product({ product = {}, addToCart }) {
 }
 
 Product.propTypes = {
-  product: productType,
+  product: PropTypes.shape(productType),
   addToCart: PropTypes.func,
 };
 

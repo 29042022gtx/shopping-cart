@@ -75,6 +75,7 @@ function Cart({ carts, setCarts, cartItem }) {
           carts.splice(targetCartIndex, 1);
           setCarts([...carts]);
         }}
+        aria-label="remove item from cart"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -94,9 +95,9 @@ function Cart({ carts, setCarts, cartItem }) {
 }
 
 Cart.propTypes = {
-  carts: PropTypes.arrayOf(cartType),
+  carts: PropTypes.arrayOf(PropTypes.shape(cartType)),
   setCarts: PropTypes.func,
-  cartItem: cartType,
+  cartItem: PropTypes.shape(cartType),
 };
 
 export default Cart;

@@ -9,18 +9,3 @@
   right: 0.5em;
   top: 0;
 }
-
-.cardList {
-  gap: 8px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  background-color: var(--background-secondary);
-  padding: 8px;
-}
-
-
-@media screen and (width >= 768px) {
-  .cardList {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
