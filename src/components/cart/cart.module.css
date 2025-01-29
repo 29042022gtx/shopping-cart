@@ -1,0 +1,14 @@
+.cartImage {
+  width: 2em;
+  aspect-ratio: 1;
+  object-fit: contain;
+  margin: 4px;
+  border-radius: 8px;
+}
+
+.cartInfo {
+  margin: 4px;
+  overflow: hidden;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}

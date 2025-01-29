@@ -1,3 +1,4 @@
+import TrendingCategorires from '../trending-categories/TrendingCategories.jsx';
 import Footer from '../footer/footer';
 import styles from './Home.module.css';
 
@@ -62,68 +63,48 @@ function HomeFeature() {
   );
 }
 
-function TrendingCategorires() {
-  const categories = [
-    'Shirt',
-    'Shoes',
-    'Headphone',
-    'Watch',
-    'Jacket',
-    'Pants',
-    'Coat',
-    'Phone',
-    'Laptop',
-    'Pan',
-    'Sofa',
-    'Beb',
-    'Belt',
-    'Keyboard',
-    'Mouse',
-    'Pen',
-    'Pencil',
-    'Ruler',
-    'Rubber',
-    'Neckless',
-    'Ring',
-    'Air conditioner',
-    'Brigde',
-    'Washing machine',
-    'Bowl',
-    'Chopsticks',
-    'Cookies',
-    'Candy',
-    'Chocolate',
-    'Backpack',
-    'Mug',
-    'Towel',
-    'Pillow',
-    'Blanket',
-    'Lamp',
-    'Camera',
-    'Speaker',
-    'Table',
-    'Lights',
-  ];
+const categories = [
+  'Shirt',
+  'Shoes',
+  'Headphone',
+  'Watch',
+  'Jacket',
+  'Pants',
+  'Coat',
+  'Phone',
+  'Laptop',
+  'Pan',
+  'Sofa',
+  'Beb',
+  'Belt',
+  'Keyboard',
+  'Mouse',
+  'Pen',
+  'Pencil',
+  'Ruler',
+  'Rubber',
+  'Neckless',
+  'Ring',
+  'Air conditioner',
+  'Brigde',
+  'Washing machine',
+  'Bowl',
+  'Chopsticks',
+  'Cookies',
+  'Candy',
+  'Chocolate',
+  'Backpack',
+  'Mug',
+  'Towel',
+  'Pillow',
+  'Blanket',
+  'Lamp',
+  'Camera',
+  'Speaker',
+  'Table',
+  'Lights',
+];
 
-  return (
-    <div>
-      <h2>Trending categories</h2>
-      <div className={styles.trendingCategories}>
-        {categories.map((categoryItem) => {
-          return (
-            <a
-              href=""
-              key={categoryItem}
-              className={styles.categoryItem}
-            >
-              {categoryItem}
-            </a>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
 export default function Home() {
   return (
     <section className="content-wrapper">
@@ -164,7 +145,7 @@ export default function Home() {
         </div>
       </div>
       <HomeFeature />
-      <TrendingCategorires />
+      <TrendingCategorires categories={categories} />
       <Footer />
     </section>
   );

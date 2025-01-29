@@ -1,0 +1,28 @@
+.prod {
+  min-width: 0;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.prodInfo {
+  margin: 4px;
+  overflow: hidden;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}
+
+.prodImage {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  margin: 4px;
+  border-radius: 8px;
+}
+
+.prodDescription {
+  margin: 4px;
+  line-height: 1.2;
+  max-height: 2.4em;
+  overflow: hidden;
+  color: var(--text-secondary);
+}

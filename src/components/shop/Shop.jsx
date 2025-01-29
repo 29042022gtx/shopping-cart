@@ -1,5 +1,9 @@
 import { useState } from 'react';
 import { useProducts } from '../../hooks/useProducts.js';
+import PropTypes from 'prop-types';
+import cartType from '../prop-types/cartType.js';
+import Product from '../product/Product.jsx';
+import Cart from '../cart/Cart.jsx';
 import Footer from '../footer/footer.jsx';
 import styles from './shop.module.css';
 
@@ -19,74 +23,9 @@ function CartBTN({ quantity }) {
   );
 }
 
-function Product({ id, image, title, price, description, addToCart }) {
-  const [quantity, setQuantity] = useState(1);
-  return (
-    <div className={styles.card}>
-      <img
-        src={image}
-        alt="product"
-        className={styles.cardImage}
-      />
-      <div className={styles.cardInfo}>
-        <b>{title}</b>
-      </div>
-      <div className={styles.cardInfo}>
-        <b>${price}</b>
-      </div>
-      <div className={styles.cardDescription}>{description}</div>
-      <div>
-        <button
-          onClick={() => {
-            if (quantity <= 1) {
-              return;
-            }
-            setQuantity(quantity - 1);
-          }}
-        >
-          -
-        </button>
-        <input
-          name="quantity"
-          type="number"
-          value={quantity}
-          min={1}
-          onInput={(e) => {
-            setQuantity(e.target.value);
-          }}
-        />
-        <button
-          onClick={() => {
-            setQuantity(quantity + 1);
-          }}
-        >
-          +
-        </button>
-      </div>
-      <button
-        onClick={() => {
-          addToCart({
-            id,
-            image,
-            title,
-            price,
-            description,
-            quantity,
-          });
-        }}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-        >
-          <title>cart-plus</title>
-          <path d="M11 9H13V6H16V4H13V1H11V4H8V6H11M7 18C5.9 18 5 18.9 5 20S5.9 22 7 22 9 21.1 9 20 8.1 18 7 18M17 18C15.9 18 15 18.9 15 20S15.9 22 17 22 19 21.1 19 20 18.1 18 17 18M7.2 14.8V14.7L8.1 13H15.5C16.2 13 16.9 12.6 17.2 12L21.1 5L19.4 4L15.5 11H8.5L4.3 2H1V4H3L6.6 11.6L5.2 14C5.1 14.3 5 14.6 5 15C5 16.1 5.9 17 7 17H19V15H7.4C7.3 15 7.2 14.9 7.2 14.8Z" />
-        </svg>
-        Add to cart
-      </button>
-    </div>
-  );
-}
+CartBTN.propTypes = {
+  quantity: PropTypes.number,
+};
 
 function ProductList({ addToCart }) {
   const { products, error, loading } = useProducts();
@@ -104,11 +43,7 @@ function ProductList({ addToCart }) {
           return (
             <Product
               key={productItem.id}
-              id={productItem.id}
-              image={productItem.image}
-              title={productItem.title}
-              price={productItem.price}
-              description={productItem.description}
+              product={productItem}
               addToCart={addToCart}
             />
           );
@@ -118,96 +53,9 @@ function ProductList({ addToCart }) {
   );
 }
 
-function Cart({ carts, setCarts, cartItem }) {
-  return (
-    <div>
-      <img
-        src={cartItem.image}
-        alt={cartItem.title}
-        className={styles.cartImage}
-      />
-      <div>
-        <div className={styles.cardInfo}>
-          <b>{cartItem.title}</b>
-        </div>
-        <div className={styles.cardInfo}>
-          <b>${cartItem.price}</b>
-        </div>
-      </div>
-      <div>
-        <button
-          onClick={() => {
-            const targetCart = carts.find((cartInList) => {
-              return cartInList.id == cartItem.id;
-            });
-            if (!targetCart || targetCart.quantity <= 1) {
-              return;
-            }
-            targetCart.quantity -= 1;
-            setCarts([...carts]);
-          }}
-        >
-          -
-        </button>
-        <input
-          name="quantity"
-          type="number"
-          min={1}
-          value={cartItem.quantity}
-          onInput={(e) => {
-            const targetCart = carts.find((cartInList) => {
-              return cartInList.id == cartItem.id;
-            });
-            if (!targetCart) {
-              return;
-            }
-            targetCart.quantity = e.target.value;
-            setCarts([...carts]);
-          }}
-        />
-        <button
-          onClick={() => {
-            const targetCart = carts.find((cartInList) => {
-              return cartInList.id == cartItem.id;
-            });
-            if (!targetCart) {
-              return;
-            }
-            targetCart.quantity += 1;
-            setCarts([...carts]);
-          }}
-        >
-          +
-        </button>
-      </div>
-      <button
-        onClick={() => {
-          const targetCartIndex = carts.findIndex((cartInList) => {
-            return cartInList.id == cartItem.id;
-          });
-          if (targetCartIndex == -1) {
-            return;
-          }
-          carts.splice(targetCartIndex, 1);
-          setCarts([...carts]);
-        }}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-        >
-          <title>cart-minus</title>
-          <path d="M16 6V4H8V6M7 18C5.9 18 5 18.9 5 20S5.9 22 7 22 9 21.1 9 20 8.1 18 7 18M17 18C15.9 18 15 18.9 15 20S15.9 22 17 22 19 21.1 19 20 18.1 18 17 18M7.2 14.8V14.7L8.1 13H15.5C16.2 13 16.9 12.6 17.2 12L21.1 5L19.4 4L15.5 11H8.5L4.3 2H1V4H3L6.6 11.6L5.2 14C5.1 14.3 5 14.6 5 15C5 16.1 5.9 17 7 17H19V15H7.4C7.3 15 7.2 14.9 7.2 14.8Z" />
-        </svg>
-        Remove
-      </button>
-      <div>
-        Total:{' '}
-        <b>${Math.round(cartItem.price * cartItem.quantity * 100) / 100}</b>
-      </div>
-    </div>
-  );
-}
+ProductList.propTypes = {
+  addToCart: PropTypes.func,
+};
 
 function CartList({ show, setShow, carts, setCarts }) {
   if (show) {
@@ -269,7 +117,14 @@ function CartList({ show, setShow, carts, setCarts }) {
   );
 }
 
-export default function Shop() {
+CartList.propTypes = {
+  show: PropTypes.bool,
+  setShow: PropTypes.func,
+  carts: PropTypes.arrayOf(cartType),
+  setCarts: PropTypes.func,
+};
+
+function Shop() {
   const [carts, setCarts] = useState([]);
   const [showModal, setShowModal] = useState(false);
   return (
@@ -288,21 +143,23 @@ export default function Shop() {
         carts={carts}
         setCarts={setCarts}
       />
-      <ProductList
-        addToCart={(cartToAdd) => {
-          cartToAdd.quantity = parseInt(cartToAdd.quantity) || 1;
-          const targetItem = carts.find((cartItem) => {
-            return cartItem.id == cartToAdd.id;
-          });
-          if (!targetItem) {
-            setCarts([...carts, cartToAdd]);
-            return;
-          }
-          targetItem.quantity += cartToAdd.quantity;
-          setCarts([...carts]);
-        }}
-      />
+      <ProductList addToCart={addToCart} />
       <Footer />
     </section>
   );
+
+  function addToCart(cartToAdd) {
+    cartToAdd.quantity = parseInt(cartToAdd.quantity) || 1;
+    const targetItem = carts.find((cartItem) => {
+      return cartItem.id == cartToAdd.id;
+    });
+    if (!targetItem) {
+      setCarts([...carts, cartToAdd]);
+      return;
+    }
+    targetItem.quantity += cartToAdd.quantity;
+    setCarts([...carts]);
+  }
 }
+
+export default Shop;
