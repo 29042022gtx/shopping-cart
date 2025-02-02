@@ -5,9 +5,12 @@ import CartList from '../cart-list/CartList.jsx';
 import Footer from '../footer/footer.jsx';
 import styles from './shop.module.css';
 
-function CartBTN({ quantity }) {
+function CartBTN({ quantity, onClick }) {
   return (
-    <button className={styles.cartBTN}>
+    <button
+      className={styles.cartBTN}
+      onClick={onClick}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -23,6 +26,7 @@ function CartBTN({ quantity }) {
 
 CartBTN.propTypes = {
   quantity: PropTypes.number,
+  onClick: PropTypes.func,
 };
 
 function Shop() {
@@ -30,14 +34,12 @@ function Shop() {
   const [showModal, setShowModal] = useState(false);
   return (
     <section className="content-wrapper">
-      <CartBTN quantity={carts.length} />
-      <button
+      <CartBTN
+        quantity={carts.length}
         onClick={() => {
           setShowModal(!showModal);
         }}
-      >
-        modal
-      </button>
+      />
       <CartList
         show={showModal}
         setShow={setShowModal}

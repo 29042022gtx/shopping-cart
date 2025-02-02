@@ -19,7 +19,7 @@ function Product({ product = {}, addToCart }) {
         <b>${product.price}</b>
       </div>
       <div className={styles.prodDescription}>{product.description}</div>
-      <div>
+      <div className={styles.inputGroup}>
         <button
           onClick={() => {
             if (quantity <= 1) {
@@ -27,6 +27,7 @@ function Product({ product = {}, addToCart }) {
             }
             setQuantity(quantity - 1);
           }}
+          className={styles.btn}
         >
           -
         </button>
@@ -38,11 +39,13 @@ function Product({ product = {}, addToCart }) {
           onInput={(e) => {
             setQuantity(e.target.value);
           }}
+          className={styles.inputControl}
         />
         <button
           onClick={() => {
             setQuantity(quantity + 1);
           }}
+          className={styles.btn}
         >
           +
         </button>
@@ -55,6 +58,7 @@ function Product({ product = {}, addToCart }) {
           });
         }}
         aria-label="add to cart"
+        className={styles.btn + ' ' + styles.addBTN}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

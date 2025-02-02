@@ -1,3 +1,7 @@
+.title {
+  font-size: 1.2em;
+}
+
 .prodList {
   gap: 8px;
   display: grid;

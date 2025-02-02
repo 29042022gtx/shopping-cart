@@ -99,6 +99,7 @@ img {
   max-width: var(--max-width);
   margin: 2em;
   background-color: var(--background-secondary);
+  border-radius: 8px;
   transition: opacity 0.5s;
 }
 

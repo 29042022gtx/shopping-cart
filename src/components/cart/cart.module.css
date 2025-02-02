@@ -1,3 +1,10 @@
+.cart {
+  display: flex;
+  background-color: var(--background-primary);
+  margin-bottom: 2px;
+  padding: 4px;
+}
+
 .cartImage {
   width: 2em;
   aspect-ratio: 1;
@@ -6,9 +13,72 @@
   border-radius: 8px;
 }
 
+.cartText {
+  flex: 1;
+  min-width: 0;
+}
+
 .cartInfo {
   margin: 4px;
   overflow: hidden;
   text-wrap: nowrap;
   text-overflow: ellipsis;
+}
+
+.inputGroup {
+  display: flex;
+}
+
+.inputControl {
+  flex: 1;
+  min-width: 0;
+
+  font-size: 100%;
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+
+.btn {
+  box-sizing: content-box;
+  display: grid;
+  place-items: center;
+  font-size: 1.2em;
+  line-height: 1;
+  height: 1.2em;
+  aspect-ratio: 1;
+  padding: 2px;
+  color: var(--text-primary);
+  background-color: var(--background-secondary);
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+
+.btn:focus {
+  border-color: var(--nav-bg);
+  outline: 2px solid var(--nav-bg);
+}
+
+.btn:active {
+  color: var(--text-secondary);
+  background-color: var(--background-primary);
+}
+
+.removeBTN {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 2px;
+  aspect-ratio: auto;
+  font-size: 100%;
+}
+
+@media screen and (width >= 768px) {
+  .cartText {
+    display: flex;
+  }
+
+  .cartInfo {
+    flex: 1;
+  }
 }

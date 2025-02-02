@@ -24,22 +24,30 @@ exports[`Product component > render product 1`] = `
     <div
       class="_prodDescription_d0b07a"
     />
-    <div>
-      <button>
+    <div
+      class="_inputGroup_d0b07a"
+    >
+      <button
+        class="_btn_d0b07a"
+      >
         -
       </button>
       <input
+        class="_inputControl_d0b07a"
         min="1"
         name="quantity"
         type="number"
         value="1"
       />
-      <button>
+      <button
+        class="_btn_d0b07a"
+      >
         +
       </button>
     </div>
     <button
       aria-label="add to cart"
+      class="_addBTN_d0b07a"
     >
       <svg
         viewBox="0 0 24 24"

@@ -1,0 +1,45 @@
+.btn {
+  box-sizing: content-box;
+  display: flex;
+  place-items: center;
+  font-size: 100%;
+  line-height: 1;
+  height: 1.2em;
+  aspect-ratio: 1;
+  margin: 0.25em 0.25em 0 auto;
+  padding: 4px 12px;
+  position: relative;
+  color: var(--text-primary);
+  background-color: var(--background-secondary);
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+
+.btn:focus {
+  border-color: var(--nav-bg);
+  outline: 2px solid var(--nav-bg);
+}
+
+.btn:active {
+  color: var(--text-secondary);
+  background-color: var(--background-primary);
+}
+
+.payBTN {
+  margin: 0 0.25em 0.25em auto;
+}
+
+.cartList {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.subTotal {
+  margin-left: auto;
+}
+
+.cartItems {
+  flex: 1;
+  overflow: auto;
+}

@@ -13,8 +13,8 @@ function ProductList({ addToCart }) {
   }
   return (
     <div>
-      <div>Products list</div>
-      <div className={styles.cardList}>
+      <div className={styles.title}>Products list</div>
+      <div className={styles.prodList}>
         {products.map((productItem) => {
           return (
             <Product

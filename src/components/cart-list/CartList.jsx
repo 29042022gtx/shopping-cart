@@ -20,21 +20,23 @@ function CartList({ show, setShow, carts, setCarts }) {
               onClick={() => {
                 setShow(false);
               }}
-              className="modal-close-btn"
+              className={styles.btn}
             >
               close
             </button>
-            {carts.map((cartItem) => {
-              return (
-                <Cart
-                  key={cartItem.id}
-                  carts={carts}
-                  setCarts={setCarts}
-                  cartItem={cartItem}
-                />
-              );
-            })}
-            <div>
+            <div className={styles.cartItems}>
+              {carts.map((cartItem) => {
+                return (
+                  <Cart
+                    key={cartItem.id}
+                    carts={carts}
+                    setCarts={setCarts}
+                    cartItem={cartItem}
+                  />
+                );
+              })}
+            </div>
+            <div className={styles.subTotal}>
               Subtotal({carts.length}): $
               {Math.round(
                 carts.reduce((prev, cartItem) => {
@@ -46,6 +48,7 @@ function CartList({ show, setShow, carts, setCarts }) {
               onClick={() => {
                 setCarts([]);
               }}
+              className={`${styles.btn} ${styles.payBTN}`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
